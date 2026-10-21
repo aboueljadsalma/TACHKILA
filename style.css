@@ -5,12 +5,95 @@
     width: 60vw;
     height: 70vh;
     gap: 5px;
+    padding: 10px;
     border-radius: 20px;
     background-image: url("terrain.png");
     background-size: 100% 100%;
     background-position: center;
+    grid-template-areas: 
+    ". . . . . . . . . . . ."
+    ". . . DG DG . . MG MG . . ."
+    ". . . . . . . . . . BU1 BU1"
+    "GB GB DC1 DC1 . . MC1 MC1 . . . ."
+    "GB GB . . . . . . . . . ."
+    "GB GB DC2 DC2 . . MC2 MC2 . . . ."
+    ". . . . . . . . . . BU2 BU2"
+    ". . . DD DD . . MD MD . . ."
+    ". . . . . . . . . . . .";
 }
 
 .box {
     background-color:transparent;
+
+}
+.Terrain > div:nth-child(16) {
+    grid-area: DG;
+    background-color: blue;
+    border-style: dotted;
+}
+
+.Terrain > div:nth-child(20) {
+    grid-area: MG;
+    background-color: green;
+    border-style: dotted;
+}
+
+.Terrain > div:nth-child(35) {
+    grid-area: BU1;
+    background-color:red;
+    border-style: dotted;
+}
+
+.Terrain > div:nth-child(37) {
+    grid-area: GB;
+    background-color: yellow;
+    border-style: dotted;
+}
+
+.Terrain > div:nth-child(38) {
+    grid-area: DC1;
+    background-color: blue;
+    border-style: dotted;
+}
+
+.Terrain > div:nth-child(39) {
+    grid-area: MC1;
+    background-color: green;
+    border-style: dotted;
+}
+
+.Terrain > div:nth-child(40) {
+    grid-area: GB;
+    background-color: yellow;
+    border-style: dotted;
+}
+
+.Terrain > div:nth-child(41) {
+    grid-area: DC2;
+    background-color: blue;
+    border-style: dotted;
+}
+
+.Terrain > div:nth-child(42) {
+    grid-area: MC2;
+    background-color: green;
+    border-style: dotted;
+}
+
+.Terrain > div:nth-child(43) {
+    grid-area: BU2;
+    background-color:red;
+    border-style: dotted;
+}
+
+.Terrain > div:nth-child(44) {
+    grid-area: DD;
+    background-color: blue;
+    border-style: dotted;
+}
+
+.Terrain > div:nth-child(45) {
+    grid-area: MD;
+    background-color: green;
+    border-style: dotted;
 }
