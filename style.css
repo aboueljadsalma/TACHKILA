@@ -1,0 +1,16 @@
+.Terrain {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(9, 1fr);
+    width: 60vw;
+    height: 70vh;
+    gap: 5px;
+    border-radius: 20px;
+    background-image: url("terrain.png");
+    background-size: 100% 100%;
+    background-position: center;
+}
+
+.box {
+    background-color:transparent;
+}
