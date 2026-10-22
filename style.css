@@ -9,7 +9,6 @@
     border-radius: 20px;
     background-image: url("terrain.png");
     background-size: 100% 100%;
-    background-position: center;
     grid-template-areas: 
     ". . . . . . . . . . . ."
     ". . . DG DG . . MG MG . . ."
@@ -24,76 +23,73 @@
 
 .box {
     background-color:transparent;
-
+    border-radius: 30px;
 }
+
 .Terrain > div:nth-child(16) {
     grid-area: DG;
-    background-color: blue;
-    border-style: dotted;
+    background-color: #c084fc;
 }
 
 .Terrain > div:nth-child(20) {
     grid-area: MG;
-    background-color: green;
-    border-style: dotted;
+    background-color: pink;
 }
 
 .Terrain > div:nth-child(35) {
     grid-area: BU1;
-    background-color:red;
-    border-style: dotted;
-}
-
-.Terrain > div:nth-child(37) {
-    grid-area: GB;
-    background-color: yellow;
-    border-style: dotted;
-}
+    background-color: #86efac;
+}    
 
 .Terrain > div:nth-child(38) {
     grid-area: DC1;
-    background-color: blue;
-    border-style: dotted;
+    background-color:  #c084fc;
 }
 
 .Terrain > div:nth-child(39) {
     grid-area: MC1;
-    background-color: green;
-    border-style: dotted;
+    background-color:pink ;
 }
 
 .Terrain > div:nth-child(40) {
     grid-area: GB;
-    background-color: yellow;
-    border-style: dotted;
+    background-color: #581c87;
 }
 
 .Terrain > div:nth-child(41) {
     grid-area: DC2;
-    background-color: blue;
-    border-style: dotted;
+    background-color:  #c084fc;
 }
 
 .Terrain > div:nth-child(42) {
     grid-area: MC2;
-    background-color: green;
-    border-style: dotted;
+    background-color: pink;
 }
 
 .Terrain > div:nth-child(43) {
     grid-area: BU2;
-    background-color:red;
-    border-style: dotted;
+    background-color: #86efac;
 }
 
 .Terrain > div:nth-child(44) {
     grid-area: DD;
-    background-color: blue;
-    border-style: dotted;
+    background-color:  #c084fc;
 }
 
 .Terrain > div:nth-child(45) {
     grid-area: MD;
-    background-color: green;
-    border-style: dotted;
+    background-color: pink ;
+}
+
+.joueur{
+    display: flex;
+    align-items: center;
+    justify-content:center ;
+    flex-direction: column;
+    font-size: x-large;
+}    
+
+.taille{
+    font-size: small;
+    color:rgb(49, 49, 49);
 }
