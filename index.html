@@ -49,23 +49,79 @@
                 </div>
 
             </div>
+
             <div class="flex items-center gap-3">
                 <span class="text-white">Schéma</span>
                 <span class=" border border-gray-800 rounded-lg px-4 py-2 text-white"> 4-4-2 </span>
             </div>
         </div>
+
     </header>
+             <div class="absolute w-full h-[88vh] flex justify-center items-center bg-zinc-950/50">
+                <form class="bg-gray-700 w-[30%] rounded-xl p-10 flex flex-col gap-5">
+                    <div class="flex items-center justify-between">
+                        <h2 class="text-xl font-serif m-5 text-white font-bold">Ajouter un joueur</h2>
+                        <button class="bg-pink-200 rounded-full px-2 text-gray-700">X</button>
+                    </div>
+
+                    <div class="flex flex-col">
+                        <label for="" class="text-white">Nom et Prénom</label>
+                        <input class=" rounded-xl p-3 bg-slate-600 text-white" type="text" placeholder="Ex.Samia Tazi">
+                    </div>
+
+                    <div>
+                        <label for="" class="text-white">Poste: </label>
+                        <div class="grid grid-cols-2">
+                            <div>
+                                <input type="radio" class="accent-purple-900 p-3">
+                                <label for="" class="text-gray-400">Gardien</label>
+                            </div>
+
+                            <div>
+                                <input type="radio" class="accent-pink-300">
+                            <label for="" class="text-gray-400">Milieu</label>
+                            </div>
+
+                            <div>
+                                <input type="radio" class="accent-purple-500">
+                                <label for="" class="text-gray-400">Défenseur</label>
+                            </div>
+                            
+                            <div>
+                                <input type="radio" class="accent-green-300">
+                                <label for="" class="text-gray-400">Attaquant</label>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div>
+                        <label for="" class="flex flex-col text-white">Nomber(1 à 99)</label>
+                        <input type="text" class="rounded-xl p-3 bg-slate-600 text-white" placeholder="Ex. 5">
+                    </div>
+
+                    <div class="flex flex-row justify-end gap-2 ">
+                        <button class="bg-slate-600 rounded-xl px-5 py-1.5 ">Annuler</button>
+                        <button class="bg-pink-200 rounded-xl px-5 py-1.5 ">Ajouter</button>
+                    </div>
+
+
+                </form>
+
+
+             </div>
    
    <main class="bg-gray-950 flex">
          <aside class="bg-gray-700 w-1/4 min-h-[calc(100vh-88px)] p-4 shadow-shadow-2xl border-r-2 border-gray-600 flex items-center flex-col gap-2">
-            <button class="bg-blue-200 py-4 px-20 rounded-lg font-bold">+Ajouter un joueur</button>
+            <button id="ajout"
+             class="bg-blue-200 py-4 px-20 rounded-lg font-bold">+Ajouter un joueur</button>
             <div class="flex justify-between w-full items-center p-0.5">
                 <p class="font-bold">Effectif</p>
                 <p class="bg-gray-800 py-1 px-4 rounded-lg text-white text-sm">1Joueur(s)</p>
             </div>
             <p class="text-sm font-serif">Cliquez sur un joueur placé pour voir sa case sur le terrain.pour modifier 🖊️,pour supprimer🗑️.</p>
-            </div>
-           <div class="rounded-xl w-full border-l border-pink-300 bg-gray-700 p-3 mt-2">
+            <div class="rounded-xl w-full border-l border-pink-300 bg-gray-700 p-3 mt-2">
                 <div class="flex gap-3">
                     <span class="rounded-full border border-pink-300 h-9 w-9 flex items-center justify-center">
                         1
