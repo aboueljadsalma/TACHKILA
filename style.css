@@ -39,7 +39,7 @@
 .terrain > div:nth-child(35) {
     grid-area: BU1;
     background-color: #86efac;
-}    
+}
 
 .terrain > div:nth-child(38) {
     grid-area: DC1;
@@ -87,7 +87,7 @@
     justify-content:center ;
     flex-direction: column;
     font-size: x-large;
-}    
+}
 
 .statut-joueur{
     font-size: small;
