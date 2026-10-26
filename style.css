@@ -1,4 +1,4 @@
-.Terrain {
+.terrain {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(9, 1fr);
@@ -21,67 +21,67 @@
     ". . . . . . . . . . . .";
 }
 
-.box {
+.case-terrain {
     background-color:transparent;
     border-radius: 30px;
 }
 
-.Terrain > div:nth-child(16) {
+.terrain > div:nth-child(16) {
     grid-area: DG;
     background-color: #c084fc;
 }
 
-.Terrain > div:nth-child(20) {
+.terrain > div:nth-child(20) {
     grid-area: MG;
     background-color: pink;
 }
 
-.Terrain > div:nth-child(35) {
+.terrain > div:nth-child(35) {
     grid-area: BU1;
     background-color: #86efac;
 }    
 
-.Terrain > div:nth-child(38) {
+.terrain > div:nth-child(38) {
     grid-area: DC1;
     background-color:  #c084fc;
 }
 
-.Terrain > div:nth-child(39) {
+.terrain > div:nth-child(39) {
     grid-area: MC1;
     background-color:pink ;
 }
 
-.Terrain > div:nth-child(40) {
+.terrain > div:nth-child(40) {
     grid-area: GB;
     background-color: #581c87;
 }
 
-.Terrain > div:nth-child(41) {
+.terrain > div:nth-child(41) {
     grid-area: DC2;
     background-color:  #c084fc;
 }
 
-.Terrain > div:nth-child(42) {
+.terrain > div:nth-child(42) {
     grid-area: MC2;
     background-color: pink;
 }
 
-.Terrain > div:nth-child(43) {
+.terrain > div:nth-child(43) {
     grid-area: BU2;
     background-color: #86efac;
 }
 
-.Terrain > div:nth-child(44) {
+.terrain > div:nth-child(44) {
     grid-area: DD;
     background-color:  #c084fc;
 }
 
-.Terrain > div:nth-child(45) {
+.terrain > div:nth-child(45) {
     grid-area: MD;
     background-color: pink ;
 }
 
-.joueur{
+.joueur-terrain{
     display: flex;
     align-items: center;
     justify-content:center ;
@@ -89,7 +89,15 @@
     font-size: x-large;
 }    
 
-.taille{
+.statut-joueur{
     font-size: small;
     color:rgb(49, 49, 49);
+}
+
+.fenetre-formulaire {
+    display: none;
+}
+
+.fenetre-formulaire.ouverte {
+    display: flex;
 }

@@ -16,7 +16,7 @@
 <body>
 
     <header class="bg-gray-700 text-white p-4 border-b-2 border-gray-500">
-        <div class="flex items-center justify-between ">
+        <div class="flex items-center justify-between">
 
             <div class="flex items-center gap-4">
                 <img src="logo.png"
@@ -52,233 +52,216 @@
 
             <div class="flex items-center gap-3">
                 <span class="text-white">Schéma</span>
-                <span class=" border border-gray-800 rounded-lg px-4 py-2 text-white"> 4-4-2 </span>
+                <span class="border border-gray-800 rounded-lg px-4 py-2 text-white">4-4-2</span>
             </div>
         </div>
-
     </header>
-             <div class="absolute w-full h-[88vh] flex justify-center items-center bg-zinc-950/50">
-                <form class="bg-gray-700 w-[30%] rounded-xl p-10 flex flex-col gap-5">
-                    <div class="flex items-center justify-between">
-                        <h2 class="text-xl font-serif m-5 text-white font-bold">Ajouter un joueur</h2>
-                        <button class="bg-pink-200 rounded-full px-2 text-gray-700">X</button>
-                    </div>
 
-                    <div class="flex flex-col">
-                        <label for="" class="text-white">Nom et Prénom</label>
-                        <input class=" rounded-xl p-3 bg-slate-600 text-white" type="text" placeholder="Ex. Samia Tazi">
-                    </div>
+    <div class="fenetre-formulaire" aria-hidden="true">
+        <div class="absolute w-full h-[88vh] flex justify-center items-center bg-zinc-950/50">
+            <form id="formulaire-joueurs" class="bg-gray-700 w-[30%] rounded-xl p-10 flex flex-col gap-5" aria-labelledby="titre-formulaire">
+                <div class="flex items-center justify-between">
+                    <h2 id="titre-formulaire" class="text-xl font-serif m-5 text-white font-bold">Ajouter un joueur</h2>
+                    <button type="button" class="bg-pink-200 rounded-full px-2 text-gray-700 fermer-formulaire">X</button>
+                </div>
 
-                    <div>
-                        <label for="" class="text-white">Poste: </label>
-                        <div class="grid grid-cols-2">
-                            <div>
-                                <input type="radio" class="accent-purple-900 p-3" name="Position" value="Gardien">
-                                <label for="" class="text-gray-400">Gardien</label>
-                            </div>
+                <div class="flex flex-col">
+                    <label for="nom-joueur" class="text-white">Nom et Prénom</label>
+                    <input id="nom-joueur" class="rounded-xl p-3 bg-slate-600 text-white" type="text" placeholder="Ex. Samia Tazi" required>
+                </div>
 
-                            <div>
-                                <input type="radio" class="accent-pink-300" name="Position" value="Milieu">
-                            <label for="" class="text-gray-400">Milieu</label>
-                            </div>
-
-                            <div>
-                                <input type="radio" class="accent-purple-500" name="Position" value="Défenseur">
-                                <label for="" class="text-gray-400">Défenseur</label>
-                            </div>
-                            
-                            <div>
-                                <input type="radio" class="accent-green-300" name="Position" value="Attaquant">
-                                <label for="" class="text-gray-400">Attaquant</label>
-                            </div>
-
+                <div>
+                    <label class="text-white">Poste :</label>
+                    <div class="grid grid-cols-2">
+                        <div>
+                            <input type="radio" class="accent-purple-900 p-3" name="poste-joueur" value="Gardien" id="poste-gardien" required>
+                            <label for="poste-gardien" class="text-gray-400">Gardien</label>
                         </div>
 
+                        <div>
+                            <input type="radio" class="accent-pink-300" name="poste-joueur" value="Milieu" id="poste-milieu">
+                            <label for="poste-milieu" class="text-gray-400">Milieu</label>
+                        </div>
+
+                        <div>
+                            <input type="radio" class="accent-purple-500" name="poste-joueur" value="Défenseur" id="poste-defenseur">
+                            <label for="poste-defenseur" class="text-gray-400">Défenseur</label>
+                        </div>
+
+                        <div>
+                            <input type="radio" class="accent-green-300" name="poste-joueur" value="Attaquant" id="poste-attaquant">
+                            <label for="poste-attaquant" class="text-gray-400">Attaquant</label>
+                        </div>
                     </div>
+                </div>
 
-                    <div>
-                        <label for="" class="flex flex-col text-white">Nomber(1 à 99)</label>
-                        <input type="text" class="rounded-xl p-3 bg-slate-600 text-white" placeholder="Ex. 5">
-                    </div>
+                <div>
+                    <label for="numero-joueur" class="flex flex-col text-white">Numéro (1 à 99)</label>
+                    <input id="numero-joueur" type="number" min="1" max="99" class="rounded-xl p-3 bg-slate-600 text-white" placeholder="Ex. 5" required>
+                    <p id="retour-formulaire" class="text-red-300 text-sm" role="alert" hidden></p>
+                </div>
 
-                    <div class="flex flex-row justify-end gap-2 ">
-                        <button class="bg-slate-600 rounded-xl px-5 py-1.5 ">Annuler</button>
-                        <button class="bg-pink-200 rounded-xl px-5 py-1.5 ">Ajouter</button>
-                    </div>
+                <div class="flex flex-row justify-end gap-2">
+                    <button type="button" class="bg-slate-600 rounded-xl px-5 py-1.5 fermer-formulaire">Annuler</button>
+                    <button type="submit" class="bg-pink-200 rounded-xl px-5 py-1.5 bouton-ajouter">Ajouter</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
+    <main class="bg-gray-950 flex">
 
-                </form>
+        <aside class="bg-gray-700 w-1/4 min-h-[calc(100vh-88px)] p-4 shadow-shadow-2xl border-r-2 border-gray-600 flex items-center flex-col gap-2">
+            <button type="button" id="ouvrir-formulaire" class="bg-blue-200 py-4 px-20 rounded-lg font-bold">+Ajouter un joueur</button>
 
-
-             </div>
-   
-   <main class="bg-gray-950 flex">
-         <aside class="bg-gray-700 w-1/4 min-h-[calc(100vh-88px)] p-4 shadow-shadow-2xl border-r-2 border-gray-600 flex items-center flex-col gap-2">
-            <button id="ajout"
-             class="bg-blue-200 py-4 px-20 rounded-lg font-bold">+Ajouter un joueur</button>
             <div class="flex justify-between w-full items-center p-0.5">
                 <p class="font-bold">Effectif</p>
-                <p class="bg-gray-800 py-1 px-4 rounded-lg text-white text-sm">1Joueur(s)</p>
+                <p id="compteur-joueurs" class="bg-gray-800 py-1 px-4 rounded-lg text-white text-sm">1 joueur</p>
             </div>
-            <p class="text-sm font-serif">Cliquez sur un joueur placé pour voir sa case sur le terrain.pour modifier 🖊️,pour supprimer🗑️.</p>
-            <div class="rounded-xl w-full border-l border-pink-300 bg-gray-700 p-3 mt-2">
-                <div class="flex gap-3">
-                    <span class="rounded-full border border-pink-300 h-9 w-9 flex items-center justify-center">
-                        1
-                    </span>
 
-                    <div class="flex-1">
-                        <h3>Bono</h3>
-                        <p class="text-pink-300 text-sm">Gardien</p>
-                    </div>
+            <p class="text-sm font-serif">Cliquez sur un joueur placé pour voir sa case sur le terrain. Pour modifier 🖊️, pour supprimer 🗑️.</p>
 
-                    <button type="button" aria-label="Modifier">🖊️</button>
-                    <button type="button" aria-label="Supprimer">🗑️</button>
+            <div id="liste-joueurs" class="w-full"></div>
+        </aside>
+
+        <section class="bg-gray-800 flex-1 min-w-0 min-h-[calc(100vh-88px)] flex justify-center items-center p-4">
+            <div class="terrain">
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain joueur-terrain">DG
+                    <p class="statut-joueur">Libre</p>
                 </div>
-
-                <select class="mt-3 w-full rounded-md border border-slate-500 bg-slate-700 p-2 text-sm text-white">
-                    <option>Sur le banc</option>
-                </select>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain joueur-terrain">MG
+                    <p class="statut-joueur">Libre</p>
+                </div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain joueur-terrain">BU
+                    <p class="statut-joueur">Libre</p>
+                </div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain joueur-terrain">DG
+                    <p class="statut-joueur">Libre</p>
+                </div>
+                <div class="case-terrain joueur-terrain">MG
+                    <p class="statut-joueur">Libre</p>
+                </div>
+                <div class="case-terrain joueur-terrain">GB
+                    <p class="statut-joueur">Libre</p>
+                </div>
+                <div class="case-terrain joueur-terrain">DG
+                    <p class="statut-joueur">Libre</p>
+                </div>
+                <div class="case-terrain joueur-terrain">MG
+                    <p class="statut-joueur">Libre</p>
+                </div>
+                <div class="case-terrain joueur-terrain">BU
+                    <p class="statut-joueur">Libre</p>
+                </div>
+                <div class="case-terrain joueur-terrain">DG
+                    <p class="statut-joueur">Libre</p>
+                </div>
+                <div class="case-terrain joueur-terrain">MG
+                    <p class="statut-joueur">Libre</p>
+                </div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
             </div>
-         </aside>
-         <section class="bg-gray-800 flex-1 min-w-0 min-h-[calc(100vh-88px)] flex justify-center items-center p-4">
-            <div class="Terrain">
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box joueur">DG 
-                    <P class="taille">Libre</P>
-                </div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box joueur">MG
-                     <P class="taille">Libre</P>
-                </div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box joueur">BU
-                     <P class="taille">Libre</P>
-                </div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box joueur">DG
-                     <P class="taille">Libre</P>
-                </div>
-                <div class="box joueur">MG
-                     <P class="taille">Libre</P>
-                </div>
-                <div class="box joueur">GB
-                     <p class="taille">Libre</P>
-                </div>
-                <div class="box joueur">DG
-                     <P class="taille">Libre</P>
-                </div>
-                <div class="box joueur">MG
-                     <P class="taille">Libre</P>
-                </div>
-                <div class="box joueur">BU
-                     <P class="taille">Libre</P>
-                </div>
-                <div class="box joueur">DG
-                    <p class="taille">Libre</P>
-                </div>
-                <div class="box joueur">MG
-                     <P class="taille">Libre</P>
-                </div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-            </div>
-         </section>
+        </section>
 
+    </main>
 
-
-   </main>
-    
 </body>
 </html>
