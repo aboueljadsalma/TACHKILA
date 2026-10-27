@@ -1,3 +1,4 @@
+
 .terrain {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -9,6 +10,9 @@
     border-radius: 20px;
     background-image: url("terrain.png");
     background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
     grid-template-areas:
         ". . . . . . . . . . . ."
         ". . . DG DG . . MG MG . . ."
@@ -26,57 +30,57 @@
     border-radius: 30px;
 }
 
-.terrain>div:nth-child(16) {
+.terrain > div:nth-child(16) {
     grid-area: DG;
     background-color: #c084fc;
 }
 
-.terrain>div:nth-child(20) {
+.terrain > div:nth-child(20) {
     grid-area: MG;
     background-color: pink;
 }
 
-.terrain>div:nth-child(35) {
+.terrain > div:nth-child(35) {
     grid-area: BU1;
     background-color: #86efac;
 }
 
-.terrain>div:nth-child(38) {
+.terrain > div:nth-child(38) {
     grid-area: DC1;
     background-color: #c084fc;
 }
 
-.terrain>div:nth-child(39) {
+.terrain > div:nth-child(39) {
     grid-area: MC1;
     background-color: pink;
 }
 
-.terrain>div:nth-child(40) {
+.terrain > div:nth-child(40) {
     grid-area: GB;
     background-color: #581c87;
 }
 
-.terrain>div:nth-child(41) {
+.terrain > div:nth-child(41) {
     grid-area: DC2;
     background-color: #c084fc;
 }
 
-.terrain>div:nth-child(42) {
+.terrain > div:nth-child(42) {
     grid-area: MC2;
     background-color: pink;
 }
 
-.terrain>div:nth-child(43) {
+.terrain > div:nth-child(43) {
     grid-area: BU2;
     background-color: #86efac;
 }
 
-.terrain>div:nth-child(44) {
+.terrain > div:nth-child(44) {
     grid-area: DD;
     background-color: #c084fc;
 }
 
-.terrain>div:nth-child(45) {
+.terrain > div:nth-child(45) {
     grid-area: MD;
     background-color: pink;
 }
@@ -100,4 +104,168 @@
 
 .fenetre-formulaire.ouverte {
     display: flex;
+}
+
+@media (max-width: 767px) {
+    header {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    header > div {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    header > div > div:nth-child(2) {
+        position: static;
+        transform: none;
+        width: 100%;
+        order: 3;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    main {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    main aside {
+        order: 1;
+        width: 100%;
+        min-height: auto;
+        box-sizing: border-box;
+        border-right: none;
+        border-bottom: 2px solid #4b5563;
+    }
+
+    main section {
+        order: 2;
+        width: 100%;
+        flex: none;
+        min-width: 0;
+        min-height: auto;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    .terrain {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 4 / 3;
+        gap: 2px;
+        padding: 5px;
+        border-radius: 12px;
+    }
+
+    .case-terrain {
+        border-radius: 8px;
+    }
+
+    .joueur-terrain {
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .statut-joueur {
+        font-size: 8px;
+    }
+
+    #formulaire-joueurs {
+        width: 90%;
+        max-width: 400px;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .fenetre-formulaire > div {
+        min-height: 100vh;
+        height: auto;
+        padding: 12px;
+        box-sizing: border-box;
+        overflow-y: auto;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    main {
+        display: flex;
+        flex-direction: row;
+    }
+    main aside {
+        width: 30%;
+        min-height: auto;
+        box-sizing: border-box;
+    }
+    main section {
+        flex: 1;
+        min-width: 0;
+        min-height: auto;
+        padding: 12px;
+        box-sizing: border-box;
+    }
+    .terrain {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 4 / 3;
+        gap: 3px;
+        padding: 8px;
+        border-radius: 16px;
+    }
+    .joueur-terrain {
+        font-size: 16px;
+    }
+    .statut-joueur {
+        font-size: 10px;
+    }
+    #formulaire-joueurs {
+        width: 60%;
+        padding: 25px;
+        box-sizing: border-box;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    body > main,
+    main {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        width: 100% !important;
+    }
+    main > aside {
+        order: 1;
+        display: flex;
+        width: 100% !important;
+        min-height: auto !important;
+        height: auto !important;
+        flex: none !important;
+        box-sizing: border-box;
+        border-right: none !important;
+        border-bottom: 2px solid #4b5563;
+    }
+    main > section {
+        order: 2;
+        display: flex;
+        flex-direction: column;
+        width: 100% !important;
+        min-width: 0 !important;
+        min-height: auto !important;
+        height: auto !important;
+        flex: none !important;
+        box-sizing: border-box;
+        padding: 10px !important;
+    }
+    main > section .terrain {
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 4 / 3;
+        gap: 2px;
+        padding: 5px;
+        box-sizing: border-box;
+    }
 }
