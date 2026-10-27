@@ -14,24 +14,20 @@ const retourFormulaire = document.querySelector("#retour-formulaire");
 const boutonOuverture = document.querySelector("#ouvrir-formulaire");
 const boutonsFermeture = document.querySelectorAll(".fermer-formulaire");
 const titreFormulaire = document.querySelector("#titre-formulaire");
-const boutonAjouter = formulaireJoueurs.querySelector(
-    'button[type="submit"]'
-);
+const boutonAjouter = formulaireJoueurs.querySelector('button[type="submit"]');
 
 function afficherJoueurs() {
     listeJoueurs.replaceChildren();
 
     joueurs.forEach((joueur, index) => {
         const carte = document.createElement("div");
-        carte.className =
-            "rounded-xl w-full border-l border-pink-300 bg-gray-700 p-3 mt-2";
+        carte.className = "rounded-xl w-full border-l border-pink-300 bg-gray-700 p-3 mt-2";
 
         const contenu = document.createElement("div");
         contenu.className = "flex items-center gap-3";
 
         const numero = document.createElement("span");
-        numero.className =
-            "rounded-full border border-pink-300 h-9 w-9 flex items-center justify-center text-white";
+        numero.className = "rounded-full border border-pink-300 h-9 w-9 flex items-center justify-center text-white";
         numero.textContent = joueur.numero;
 
         const informations = document.createElement("div");
@@ -48,12 +44,8 @@ function afficherJoueurs() {
         const boutonModifier = document.createElement("button");
         boutonModifier.type = "button";
         boutonModifier.textContent = "🖊️";
-        boutonModifier.className =
-            "text-white cursor-pointer text-lg p-1";
-        boutonModifier.setAttribute(
-            "aria-label",
-            `Modifier ${joueur.nom}`
-        );
+        boutonModifier.className = "text-white cursor-pointer text-lg p-1";
+        boutonModifier.setAttribute("aria-label", `Modifier ${joueur.nom}`);
 
         boutonModifier.addEventListener("click", () => {
             indexJoueurAModifier = index;
@@ -76,16 +68,30 @@ function afficherJoueurs() {
 
             fenetreFormulaire.classList.add("ouverte");
             fenetreFormulaire.setAttribute("aria-hidden", "false");
+
             champNom.focus();
         });
 
+        const boutonSupprimer = document.createElement("button");
+        boutonSupprimer.type = "button";
+        boutonSupprimer.textContent = "🗑️";
+        boutonSupprimer.className = "text-white cursor-pointer text-lg p-1";
+        boutonSupprimer.setAttribute("aria-label", `Supprimer ${joueur.nom}`);
+
+        boutonSupprimer.addEventListener("click", () => {
+            const confirmation = confirm(
+                `Voulez-vous vraiment supprimer ${joueur.nom} ?`
+            );
+
+            if (!confirmation) return;
+
+            joueurs.splice(index, 1);
+            afficherJoueurs();
+        });
+
         const emplacement = document.createElement("select");
-        emplacement.className =
-            "mt-3 w-full rounded-md border border-slate-500 bg-slate-700 p-2 text-sm text-white";
-        emplacement.setAttribute(
-            "aria-label",
-            `Emplacement de ${joueur.nom}`
-        );
+        emplacement.className = "mt-3 w-full rounded-md border border-slate-500 bg-slate-700 p-2 text-sm text-white";
+        emplacement.setAttribute("aria-label", `Emplacement de ${joueur.nom}`);
 
         const optionBanc = document.createElement("option");
         optionBanc.value = "banc";
@@ -94,15 +100,14 @@ function afficherJoueurs() {
         emplacement.append(optionBanc);
 
         informations.append(nom, poste);
-        contenu.append(numero, informations, boutonModifier);
+        contenu.append(numero, informations, boutonModifier, boutonSupprimer);
         carte.append(contenu, emplacement);
         listeJoueurs.append(carte);
     });
 
-    compteurJoueurs.textContent =
-        joueurs.length === 1
-            ? "1 joueur"
-            : `${joueurs.length} joueurs`;
+    compteurJoueurs.textContent = joueurs.length === 1
+        ? "1 joueur"
+        : `${joueurs.length} joueurs`;
 }
 
 function afficherErreur(message) {
@@ -125,17 +130,14 @@ function reinitialiserFormulaire() {
 
 function ouvrirFormulaire() {
     reinitialiserFormulaire();
-
     fenetreFormulaire.classList.add("ouverte");
     fenetreFormulaire.setAttribute("aria-hidden", "false");
-
     champNom.focus();
 }
 
 function fermerFormulaire() {
     fenetreFormulaire.classList.remove("ouverte");
     fenetreFormulaire.setAttribute("aria-hidden", "true");
-
     reinitialiserFormulaire();
 }
 
@@ -162,9 +164,7 @@ formulaireJoueurs.addEventListener("submit", (evenement) => {
         numero > 99 ||
         !posteSelectionne
     ) {
-        afficherErreur(
-            "Vérifiez le nom, le poste et le numéro (de 1 à 99)."
-        );
+        afficherErreur("Vérifiez le nom, le poste et le numéro (de 1 à 99).");
         return;
     }
 
@@ -175,9 +175,7 @@ formulaireJoueurs.addEventListener("submit", (evenement) => {
     );
 
     if (numeroExiste) {
-        afficherErreur(
-            "Ce numéro est déjà attribué à un joueur."
-        );
+        afficherErreur("Ce numéro est déjà attribué à un joueur.");
         return;
     }
 
