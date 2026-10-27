@@ -1,7 +1,4 @@
-const joueurs = [
-    { nom: "Bono", numero: 1, poste: "Gardien" }
-];
-
+const joueurs = [{ nom: "Bono", numero: 1, poste: "Gardien" }];
 let indexJoueurAModifier = null;
 
 const fenetreFormulaire = document.querySelector(".fenetre-formulaire");
@@ -49,26 +46,17 @@ function afficherJoueurs() {
 
         boutonModifier.addEventListener("click", () => {
             indexJoueurAModifier = index;
-
             champNom.value = joueur.nom;
             champNumero.value = joueur.numero;
 
-            const posteSelectionne = formulaireJoueurs.querySelector(
-                `input[name="poste-joueur"][value="${joueur.poste}"]`
-            );
-
-            if (posteSelectionne) {
-                posteSelectionne.checked = true;
-            }
+            const posteSelectionne = formulaireJoueurs.querySelector(`input[name="poste-joueur"][value="${joueur.poste}"]`);
+            if (posteSelectionne) posteSelectionne.checked = true;
 
             titreFormulaire.textContent = "Modifier un joueur";
             boutonAjouter.textContent = "Enregistrer";
-
             effacerErreur();
-
             fenetreFormulaire.classList.add("ouverte");
             fenetreFormulaire.setAttribute("aria-hidden", "false");
-
             champNom.focus();
         });
 
@@ -79,12 +67,7 @@ function afficherJoueurs() {
         boutonSupprimer.setAttribute("aria-label", `Supprimer ${joueur.nom}`);
 
         boutonSupprimer.addEventListener("click", () => {
-            const confirmation = confirm(
-                `Voulez-vous vraiment supprimer ${joueur.nom} ?`
-            );
-
-            if (!confirmation) return;
-
+            if (!confirm(`Voulez-vous vraiment supprimer ${joueur.nom} ?`)) return;
             joueurs.splice(index, 1);
             afficherJoueurs();
         });
@@ -93,11 +76,27 @@ function afficherJoueurs() {
         emplacement.className = "mt-3 w-full rounded-md border border-slate-500 bg-slate-700 p-2 text-sm text-white";
         emplacement.setAttribute("aria-label", `Emplacement de ${joueur.nom}`);
 
-        const optionBanc = document.createElement("option");
-        optionBanc.value = "banc";
-        optionBanc.textContent = "Sur le banc";
+        const optionsEmplacements = [
+            { valeur: "banc", texte: "Sur le banc" },
+            { valeur: "GB", texte: "GB - Gardien" },
+            { valeur: "DG", texte: "DG - Défenseur gauche" },
+            { valeur: "DC1", texte: "DC - Défenseur central 1" },
+            { valeur: "DC2", texte: "DC - Défenseur central 2" },
+            { valeur: "DD", texte: "DD - Défenseur droit" },
+            { valeur: "MG", texte: "MG - Milieu gauche" },
+            { valeur: "MC1", texte: "MC - Milieu central 1" },
+            { valeur: "MC2", texte: "MC - Milieu central 2" },
+            { valeur: "MD", texte: "MD - Milieu droit" },
+            { valeur: "BU1", texte: "BU - Buteur 1" },
+            { valeur: "BU2", texte: "BU - Buteur 2" }
+        ];
 
-        emplacement.append(optionBanc);
+        optionsEmplacements.forEach(option => {
+            const elementOption = document.createElement("option");
+            elementOption.value = option.valeur;
+            elementOption.textContent = option.texte;
+            emplacement.append(elementOption);
+        });
 
         informations.append(nom, poste);
         contenu.append(numero, informations, boutonModifier, boutonSupprimer);
@@ -105,9 +104,7 @@ function afficherJoueurs() {
         listeJoueurs.append(carte);
     });
 
-    compteurJoueurs.textContent = joueurs.length === 1
-        ? "1 joueur"
-        : `${joueurs.length} joueurs`;
+    compteurJoueurs.textContent = joueurs.length === 1 ? "1 joueur" : `${joueurs.length} joueurs`;
 }
 
 function afficherErreur(message) {
@@ -142,54 +139,29 @@ function fermerFormulaire() {
 }
 
 boutonOuverture.addEventListener("click", ouvrirFormulaire);
+boutonsFermeture.forEach(bouton => bouton.addEventListener("click", fermerFormulaire));
 
-boutonsFermeture.forEach((bouton) => {
-    bouton.addEventListener("click", fermerFormulaire);
-});
-
-formulaireJoueurs.addEventListener("submit", (evenement) => {
+formulaireJoueurs.addEventListener("submit", evenement => {
     evenement.preventDefault();
 
     const nom = champNom.value.trim();
     const numero = Number(champNumero.value);
+    const posteSelectionne = formulaireJoueurs.querySelector('input[name="poste-joueur"]:checked');
 
-    const posteSelectionne = formulaireJoueurs.querySelector(
-        'input[name="poste-joueur"]:checked'
-    );
-
-    if (
-        !nom ||
-        !Number.isInteger(numero) ||
-        numero < 1 ||
-        numero > 99 ||
-        !posteSelectionne
-    ) {
+    if (!nom || !Number.isInteger(numero) || numero < 1 || numero > 99 || !posteSelectionne) {
         afficherErreur("Vérifiez le nom, le poste et le numéro (de 1 à 99).");
         return;
     }
 
-    const numeroExiste = joueurs.some(
-        (joueur, index) =>
-            joueur.numero === numero &&
-            index !== indexJoueurAModifier
-    );
-
-    if (numeroExiste) {
+    if (joueurs.some((joueur, index) => joueur.numero === numero && index !== indexJoueurAModifier)) {
         afficherErreur("Ce numéro est déjà attribué à un joueur.");
         return;
     }
 
-    const joueurMisAJour = {
-        nom: nom,
-        numero: numero,
-        poste: posteSelectionne.value
-    };
+    const joueurMisAJour = { nom, numero, poste: posteSelectionne.value };
 
-    if (indexJoueurAModifier !== null) {
-        joueurs[indexJoueurAModifier] = joueurMisAJour;
-    } else {
-        joueurs.push(joueurMisAJour);
-    }
+    if (indexJoueurAModifier !== null) joueurs[indexJoueurAModifier] = joueurMisAJour;
+    else joueurs.push(joueurMisAJour);
 
     afficherJoueurs();
     fermerFormulaire();

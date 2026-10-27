@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="TACHKILA est une application web responsive permettant de gérer l'effectif d'une équipe de football et de créer une composition en 4-4-2.">
+    <meta name="description"
+        content="TACHKILA est une application web responsive permettant de gérer l'effectif d'une équipe de football et de créer une composition en 4-4-2.">
     <title>TACHKILA</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="script.js" defer></script>
@@ -11,37 +12,30 @@
 </head>
 
 <body>
-
     <header class="bg-gray-700 text-white p-4 border-b-2 border-gray-500">
         <div class="flex items-center justify-between">
-
             <div class="flex items-center gap-4">
                 <img src="logo.png" alt="Logo Atlas FC" class="w-14 h-14 object-contain">
                 <h1 class="text-3xl font-bold">ATLAS FC</h1>
             </div>
 
             <div class="absolute left-1/2 -translate-x-1/2 flex items-center justify-center gap-4">
-
                 <div class="flex items-center gap-2">
                     <span class="w-3 h-3 rounded-full bg-purple-900"></span>
                     <span>GB</span>
                 </div>
-
                 <div class="flex items-center gap-2">
                     <span class="w-3 h-3 rounded-full bg-purple-500"></span>
                     <span>DEF</span>
                 </div>
-
                 <div class="flex items-center gap-2">
                     <span class="w-3 h-3 rounded-full bg-pink-300"></span>
                     <span>MIL</span>
                 </div>
-
                 <div class="flex items-center gap-2">
                     <span class="w-3 h-3 rounded-full bg-green-300"></span>
                     <span>ATT</span>
                 </div>
-
             </div>
 
             <div class="flex items-center gap-3">
@@ -53,37 +47,41 @@
 
     <div class="fenetre-formulaire" aria-hidden="true">
         <div class="absolute w-full h-[88vh] flex justify-center items-center bg-zinc-950/50">
-            <form id="formulaire-joueurs" class="bg-gray-700 w-[30%] rounded-xl p-10 flex flex-col gap-5" aria-labelledby="titre-formulaire">
+            <form id="formulaire-joueurs" class="bg-gray-700 w-[30%] rounded-xl p-10 flex flex-col gap-5"
+                aria-labelledby="titre-formulaire">
                 <div class="flex items-center justify-between">
                     <h2 id="titre-formulaire" class="text-xl font-serif m-5 text-white font-bold">Ajouter un joueur</h2>
-                    <button type="button" class="bg-pink-200 rounded-full px-2 text-gray-700 fermer-formulaire">X</button>
+                    <button type="button"
+                        class="bg-pink-200 rounded-full px-2 text-gray-700 fermer-formulaire">X</button>
                 </div>
 
                 <div class="flex flex-col">
                     <label for="nom-joueur" class="text-white">Nom et Prénom</label>
-                    <input id="nom-joueur" class="rounded-xl p-3 bg-slate-600 text-white" type="text" placeholder="Ex. Samia Tazi" required>
+                    <input id="nom-joueur" class="rounded-xl p-3 bg-slate-600 text-white" type="text"
+                        placeholder="Ex. Samia Tazi" required>
                 </div>
 
                 <div>
                     <label class="text-white">Poste :</label>
                     <div class="grid grid-cols-2">
                         <div>
-                            <input type="radio" class="accent-purple-900 p-3" name="poste-joueur" value="Gardien" id="poste-gardien" required>
+                            <input type="radio" class="accent-purple-900 p-3" name="poste-joueur" value="Gardien"
+                                id="poste-gardien" required>
                             <label for="poste-gardien" class="text-gray-400">Gardien</label>
                         </div>
-
                         <div>
-                            <input type="radio" class="accent-pink-300" name="poste-joueur" value="Milieu" id="poste-milieu">
+                            <input type="radio" class="accent-pink-300" name="poste-joueur" value="Milieu"
+                                id="poste-milieu">
                             <label for="poste-milieu" class="text-gray-400">Milieu</label>
                         </div>
-
                         <div>
-                            <input type="radio" class="accent-purple-500" name="poste-joueur" value="Défenseur" id="poste-defenseur">
+                            <input type="radio" class="accent-purple-500" name="poste-joueur" value="Défenseur"
+                                id="poste-defenseur">
                             <label for="poste-defenseur" class="text-gray-400">Défenseur</label>
                         </div>
-
                         <div>
-                            <input type="radio" class="accent-green-300" name="poste-joueur" value="Attaquant" id="poste-attaquant">
+                            <input type="radio" class="accent-green-300" name="poste-joueur" value="Attaquant"
+                                id="poste-attaquant">
                             <label for="poste-attaquant" class="text-gray-400">Attaquant</label>
                         </div>
                     </div>
@@ -91,7 +89,8 @@
 
                 <div>
                     <label for="numero-joueur" class="flex flex-col text-white">Numéro (1 à 99)</label>
-                    <input id="numero-joueur" type="number" min="1" max="99" class="rounded-xl p-3 bg-slate-600 text-white" placeholder="Ex. 5" required>
+                    <input id="numero-joueur" type="number" min="1" max="99"
+                        class="rounded-xl p-3 bg-slate-600 text-white" placeholder="Ex. 5" required>
                     <p id="retour-formulaire" class="text-red-300 text-sm" role="alert" hidden></p>
                 </div>
 
@@ -104,16 +103,18 @@
     </div>
 
     <main class="bg-gray-950 flex">
-
-        <aside class="bg-gray-700 w-1/4 min-h-[calc(100vh-88px)] p-4 shadow-shadow-2xl border-r-2 border-gray-600 flex items-center flex-col gap-2">
-            <button type="button" id="ouvrir-formulaire" class="bg-blue-200 py-4 px-20 rounded-lg font-bold">+Ajouter un joueur</button>
+        <aside
+            class="bg-gray-700 w-1/4 min-h-[calc(100vh-88px)] p-4 shadow-shadow-2xl border-r-2 border-gray-600 flex items-center flex-col gap-2">
+            <button type="button" id="ouvrir-formulaire" class="bg-blue-200 py-4 px-20 rounded-lg font-bold">+Ajouter un
+                joueur</button>
 
             <div class="flex justify-between w-full items-center p-0.5">
                 <p class="font-bold">Effectif</p>
                 <p id="compteur-joueurs" class="bg-gray-800 py-1 px-4 rounded-lg text-white text-sm">1 joueur</p>
             </div>
 
-            <p class="text-sm font-serif">Cliquez sur un joueur placé pour voir sa case sur le terrain. Pour modifier 🖊️, pour supprimer 🗑️.</p>
+            <p class="text-sm font-serif">Cliquez sur un joueur placé pour voir sa case sur le terrain. Pour modifier
+                🖊️, pour supprimer 🗑️.</p>
 
             <div id="liste-joueurs" class="w-full"></div>
         </aside>
@@ -135,15 +136,22 @@
                 <div class="case-terrain"></div>
                 <div class="case-terrain"></div>
                 <div class="case-terrain"></div>
-                <div class="case-terrain joueur-terrain">DG
+
+                <div class="case-terrain joueur-terrain" data-position="DG" data-poste="Défenseur"
+                    data-nom-position="DG">
+                    <span>DG</span>
                     <p class="statut-joueur">Libre</p>
                 </div>
+
                 <div class="case-terrain"></div>
                 <div class="case-terrain"></div>
                 <div class="case-terrain"></div>
-                <div class="case-terrain joueur-terrain">MG
+
+                <div class="case-terrain joueur-terrain" data-position="MG" data-poste="Milieu" data-nom-position="MG">
+                    <span>MG</span>
                     <p class="statut-joueur">Libre</p>
                 </div>
+
                 <div class="case-terrain"></div>
                 <div class="case-terrain"></div>
                 <div class="case-terrain"></div>
@@ -158,35 +166,62 @@
                 <div class="case-terrain"></div>
                 <div class="case-terrain"></div>
                 <div class="case-terrain"></div>
-                <div class="case-terrain joueur-terrain">BU
+
+                <div class="case-terrain joueur-terrain" data-position="BU1" data-poste="Attaquant"
+                    data-nom-position="BU">
+                    <span>BU</span>
                     <p class="statut-joueur">Libre</p>
                 </div>
+
                 <div class="case-terrain"></div>
                 <div class="case-terrain"></div>
-                <div class="case-terrain joueur-terrain">DC
+
+                <div class="case-terrain joueur-terrain" data-position="DC1" data-poste="Défenseur"
+                    data-nom-position="DC">
+                    <span>DC</span>
                     <p class="statut-joueur">Libre</p>
                 </div>
-                <div class="case-terrain joueur-terrain">MC
+
+                <div class="case-terrain joueur-terrain" data-position="MC1" data-poste="Milieu" data-nom-position="MC">
+                    <span>MC</span>
                     <p class="statut-joueur">Libre</p>
                 </div>
-                <div class="case-terrain joueur-terrain">GB
+
+                <div class="case-terrain joueur-terrain" data-position="GB" data-poste="Gardien" data-nom-position="GB">
+                    <span>GB</span>
                     <p class="statut-joueur">Libre</p>
                 </div>
-                <div class="case-terrain joueur-terrain">DC
+
+                <div class="case-terrain joueur-terrain" data-position="DC2" data-poste="Défenseur"
+                    data-nom-position="DC">
+                    <span>DC</span>
                     <p class="statut-joueur">Libre</p>
                 </div>
-                <div class="case-terrain joueur-terrain">MC
+
+                <div class="case-terrain joueur-terrain" data-position="MC2" data-poste="Milieu" data-nom-position="MC">
+                    <span>MC</span>
                     <p class="statut-joueur">Libre</p>
                 </div>
-                <div class="case-terrain joueur-terrain">BU
+
+                <div class="case-terrain joueur-terrain" data-position="BU2" data-poste="Attaquant"
+                    data-nom-position="BU">
+                    <span>BU</span>
                     <p class="statut-joueur">Libre</p>
                 </div>
-                <div class="case-terrain joueur-terrain">DD
+
+                <div class="case-terrain joueur-terrain" data-position="DD" data-poste="Défenseur"
+                    data-nom-position="DD">
+                    <span>DD</span>
                     <p class="statut-joueur">Libre</p>
                 </div>
-                <div class="case-terrain joueur-terrain">MD
+
+                <div class="case-terrain joueur-terrain" data-position="MD" data-poste="Milieu" data-nom-position="MD">
+                    <span>MD</span>
                     <p class="statut-joueur">Libre</p>
                 </div>
+
+                <div class="case-terrain"></div>
+                <div class="case-terrain"></div>
                 <div class="case-terrain"></div>
                 <div class="case-terrain"></div>
                 <div class="case-terrain"></div>
@@ -254,8 +289,7 @@
                 <div class="case-terrain"></div>
             </div>
         </section>
-
     </main>
-
 </body>
+
 </html>

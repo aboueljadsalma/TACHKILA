@@ -9,89 +9,89 @@
     border-radius: 20px;
     background-image: url("terrain.png");
     background-size: 100% 100%;
-    grid-template-areas: 
-    ". . . . . . . . . . . ."
-    ". . . DG DG . . MG MG . . ."
-    ". . . . . . . . . . BU1 BU1"
-    "GB GB DC1 DC1 . . MC1 MC1 . . . ."
-    "GB GB . . . . . . . . . ."
-    "GB GB DC2 DC2 . . MC2 MC2 . . . ."
-    ". . . . . . . . . . BU2 BU2"
-    ". . . DD DD . . MD MD . . ."
-    ". . . . . . . . . . . .";
+    grid-template-areas:
+        ". . . . . . . . . . . ."
+        ". . . DG DG . . MG MG . . ."
+        ". . . . . . . . . . BU1 BU1"
+        "GB GB DC1 DC1 . . MC1 MC1 . . . ."
+        "GB GB . . . . . . . . . ."
+        "GB GB DC2 DC2 . . MC2 MC2 . . . ."
+        ". . . . . . . . . . BU2 BU2"
+        ". . . DD DD . . MD MD . . ."
+        ". . . . . . . . . . . .";
 }
 
 .case-terrain {
-    background-color:transparent;
+    background-color: transparent;
     border-radius: 30px;
 }
 
-.terrain > div:nth-child(16) {
+.terrain>div:nth-child(16) {
     grid-area: DG;
     background-color: #c084fc;
 }
 
-.terrain > div:nth-child(20) {
+.terrain>div:nth-child(20) {
     grid-area: MG;
     background-color: pink;
 }
 
-.terrain > div:nth-child(35) {
+.terrain>div:nth-child(35) {
     grid-area: BU1;
     background-color: #86efac;
 }
 
-.terrain > div:nth-child(38) {
+.terrain>div:nth-child(38) {
     grid-area: DC1;
-    background-color:  #c084fc;
+    background-color: #c084fc;
 }
 
-.terrain > div:nth-child(39) {
+.terrain>div:nth-child(39) {
     grid-area: MC1;
-    background-color:pink ;
+    background-color: pink;
 }
 
-.terrain > div:nth-child(40) {
+.terrain>div:nth-child(40) {
     grid-area: GB;
     background-color: #581c87;
 }
 
-.terrain > div:nth-child(41) {
+.terrain>div:nth-child(41) {
     grid-area: DC2;
-    background-color:  #c084fc;
+    background-color: #c084fc;
 }
 
-.terrain > div:nth-child(42) {
+.terrain>div:nth-child(42) {
     grid-area: MC2;
     background-color: pink;
 }
 
-.terrain > div:nth-child(43) {
+.terrain>div:nth-child(43) {
     grid-area: BU2;
     background-color: #86efac;
 }
 
-.terrain > div:nth-child(44) {
+.terrain>div:nth-child(44) {
     grid-area: DD;
-    background-color:  #c084fc;
+    background-color: #c084fc;
 }
 
-.terrain > div:nth-child(45) {
+.terrain>div:nth-child(45) {
     grid-area: MD;
-    background-color: pink ;
+    background-color: pink;
 }
 
-.joueur-terrain{
+.joueur-terrain {
     display: flex;
     align-items: center;
-    justify-content:center ;
+    justify-content: center;
     flex-direction: column;
     font-size: x-large;
 }
 
-.statut-joueur{
+.statut-joueur {
     font-size: small;
-    color:rgb(49, 49, 49);
+    color: rgb(49, 49, 49);
 }
 
 .fenetre-formulaire {
